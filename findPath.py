@@ -39,30 +39,57 @@ def checkHoriz(row, col, prevCol, listA):
          return False
    return True
 
-#no path
 listA = [[1, 0, 0, 0, 0],
          [1, 1, 1, 1, 1], 
          [0, 1, 0, 0, 1], 
          [1, 1, 1, 0, 1], #breaks here 
          [0, 0, 0, 1, 1]]
-#path
+
 listB = [[1, 0, 0, 0, 0],
          [1, 1, 0, 0, 0], 
          [0, 1, 1, 0, 0], 
          [1, 0, 1, 1, 1], 
-         [0, 0, 0, 0, 1]]
+         [0, 0, 0, 0, 1]] #success!
+
+listC = [[1, 0, 0, 0, 0, 1, 1],
+         [1, 1, 0, 0, 0, 1, 0], 
+         [0, 1, 1, 0, 0, 1, 0], 
+         [1, 0, 1, 1, 1, 1, 0], 
+         [0, 0, 0, 0, 1, 0, 0]] #success!
+
+listD = [[1, 0, 0, 0, 0, 1, 1],
+         [1, 1, 0, 0, 0, 1, 0], 
+         [0, 0, 1, 1, 1, 0, 0], #breaks here 
+         [1, 0, 1, 1, 1, 1, 0], 
+         [0, 0, 0, 0, 1, 0, 0]] 
+
+listE = [[1, 0, 0],
+         [1, 1, 0],
+         [0, 1, 1],
+         [1, 0, 1],
+         [0, 0, 1]] #sucess
+
+listF = [[1, 0, 0],
+         [0, 1, 1], #breaks here
+         [0, 1, 1], 
+         [1, 0, 1],
+         [0, 0, 1]] 
 
 #horz TEST
-print("expect: True; value: %s" % checkHoriz(1, 0, 1, listB))
-print("expect: True; value: %s" % checkHoriz(1, 1, 0, listB))
-print("expect: True; value: %s" % checkHoriz(1, 0, 0, listB))
-print("expect: False; value: %s" % checkHoriz(4, 0, 3, listB))
+print("expect: True; actual: %s" % checkHoriz(1, 0, 1, listB))
+print("expect: True; actual: %s" % checkHoriz(1, 1, 0, listB))
+print("expect: True; actual: %s" % checkHoriz(1, 0, 0, listB))
+print("expect: False; actual: %s" % checkHoriz(4, 0, 3, listB))
 
 
 #vert TEST
-print("expect: 0; value: %s" % checkVert(1, 0, listA))
-print("expect: -1; value: %s" % checkVert(2, 0, listA))
+print("expect: 0; actual: %s" % checkVert(1, 0, listA))
+print("expect: -1; actual: %s" % checkVert(2, 0, listA))
 
 #find
-print("expect: False; value: %s" % findPath(listA)); 
-print("expect: True; value; %s" % findPath(listB));
+print("expect: False; actual: %s" % findPath(listA)); 
+print("expect: True; actual; %s" % findPath(listB));
+print("expect: True; actual; %s" % findPath(listC));
+print("expect: False; actual; %s" % findPath(listD));
+print("expect: True; actual; %s" % findPath(listE));
+print("expect: False; actual; %s" % findPath(listF));
